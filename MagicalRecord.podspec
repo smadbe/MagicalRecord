@@ -13,6 +13,12 @@ Pod::Spec.new do |s|
   s.framework = 'CoreData'
   s.requires_arc = true
 
+  def s.post_install(target)
+      prefix_header = config.project_pods_root + target.prefix_header_filename
+      prefix_header.open('a') do |file|
+        file.puts(%{#ifdef __OBJC__\n#define MR_SHORTHAND\n#import "CoreData+MagicalRecord.h"\n#endif})
+      end
+  end
 end
 
 
