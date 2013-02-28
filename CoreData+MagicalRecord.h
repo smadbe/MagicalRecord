@@ -1,4 +1,4 @@
-
+// !KM version!
 // enable to use caches for the fetchedResultsControllers (iOS only)
 // #define STORE_USE_CACHE
 
